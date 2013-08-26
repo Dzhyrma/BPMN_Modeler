@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:sec="http://www.springframework.org/schema/security" xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/jee
+			http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+			http://www.springframework.org/schema/mvc
+			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+			http://www.springframework.org/schema/security
+			http://www.springframework.org/schema/security/spring-security-3.1.xsd
+			http://www.springframework.org/schema/security/oauth2
+			http://www.springframework.org/schema/security/spring-security-oauth2-1.0.xsd">
+
+
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
+	<context:component-scan base-package="com.jku.bpmn"
+		use-default-filters="false">
+		<context:include-filter expression="org.springframework.stereotype.Controller"
+			type="annotation" />
+	</context:component-scan>
+
+	<bean id="facebookAccessTokenRetriever"
+		class="com.jku.bpmn.social.facebook.FacebookAccessTokenRetriever">
+		<property name="secret" value="19dd0204a1348804a9c3e122a9dac0ed" />
+		<property name="apiKey" value="297412610390709" />
+		<property name="redirectURI" value="http://192.168.118.1:8080/bpmn/facebook" />
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/bpmn_modeler" />
+		<property name="username" value="root" />
+		<property name="password" value="admin" />
+	</bean>
+
+	<bean id="userService" class="com.jku.bpmn.services.UserService"></bean>
+
+	<bean id="jacksonMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="jacksonMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

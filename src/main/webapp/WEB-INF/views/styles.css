@@ -1,0 +1,131 @@
+@CHARSET "UTF-8";
+@CHARSET "UTF-8";
+.ui-loader-background {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	padding: 0;
+	margin: 0;
+	background: rgba(0, 0, 0, 0.3);
+	display: none;
+	position: fixed;
+	z-index: 100;
+}
+
+.ui-loading .ui-loader-background {
+	display: block;
+}
+
+.defaultArrowText {
+	font: bold 20px courier;
+}
+
+.condition {
+	text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+div.draggable {
+	position: relative;
+	cursor: move;
+	min-width: 32px;
+	min-height: 32px;
+	max-width: 300px;
+	max-height: 200px;
+}
+
+.ep {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 0.7em;
+	height: 0.7em;
+	border: 2px solid;
+	border-color: #000000;
+	border-radius: 0.2em;
+	background-color: #999999;
+	cursor: pointer;
+	display: none;
+	z-index: 1;
+}
+
+div.draggable:hover .ep {
+	display: block;
+}
+
+.ui-dialog .ui-state-error {
+	padding: .3em;
+}
+
+.validateTips {
+	border: 1px solid transparent;
+	padding: 0.3em;
+}
+
+header {
+	width: 80%;
+	background-color: #66cccc;
+	color: white;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	overflow: hidden;
+	border-top-color: white;
+	border-bottom-color: white ;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-width: 5px;
+	border-bottom-width: 5px;
+	text-align: center;
+}
+
+section {
+	width: 80%;
+	background-color: white;
+	margin-right: auto;
+	margin-left: auto;
+	border-left: #d4d4d4 solid 3px;
+	border-right: #d4d4d4 solid 3px;
+	padding: 5px;
+	height: 700px;
+}
+
+nav {
+	width: 30%;
+	float: right;
+}
+
+body {
+	font-family: Arial, Helvettica, sans-serif;
+	background-color: white;
+}
+
+a:link {
+	text-decoration: none;
+	color: white;
+}
+
+a:VISITED {
+	text-decoration: none;
+	color: white;
+}
+a:HOVER {
+	text-decoration: underline;
+	color: white;
+}
+
+
+button {
+background-color:E6E6E6;
+color:#2E2E2E;
+padding:2px;
+text-decoration:none;
+}
+
+hr{
+	border:0px;
+	 color: #d4d4d4;
+	background-color: #d4d4d4;
+	height: 5px;
+  width: 82%;
+}
